@@ -23,6 +23,9 @@ service Query {
     option (google.api.http).get = "/mritunjay/mritunjay/say_bye/{name}";
   
   }
+  rpc SayGoodMorning(QuerySayGoodMorningRequest) returns (QuerySayGoodMorningResponse) {
+    option (google.api.http).get = "/hello/hello/Say_GoodMorning/{name}";
+}
 }
 // QueryParamsRequest is request type for the Query/Params RPC method.
 message QueryParamsRequest {}
@@ -42,3 +45,10 @@ message QuerySayByeResponse {
   string name = 1;
 }
 
+message QuerySayGoodMorningRequest {
+  string name = 1;
+}
+
+message QuerySayGoodMorningResponse {
+  string name = 1;
+}

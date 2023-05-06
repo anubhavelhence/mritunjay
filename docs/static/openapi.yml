@@ -43864,6 +43864,42 @@ paths:
                         }
       tags:
         - Query
+  /hello/hello/Say_GoodMorning/{name}:
+    get:
+      operationId: MritunjayMritunjaySayGoodMorning
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+        default:
+          description: An unexpected error response.
+          schema:
+            type: object
+            properties:
+              code:
+                type: integer
+                format: int32
+              message:
+                type: string
+              details:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    '@type':
+                      type: string
+                  additionalProperties: {}
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+      tags:
+        - Query
   /mritunjay/mritunjay/params:
     get:
       summary: Parameters queries the parameters of the module.
@@ -43898,6 +43934,43 @@ paths:
                     '@type':
                       type: string
                   additionalProperties: {}
+      tags:
+        - Query
+  /mritunjay/mritunjay/say_bye/{name}:
+    get:
+      summary: Queries a list of SayBye items.
+      operationId: MritunjayMritunjaySayBye
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+        default:
+          description: An unexpected error response.
+          schema:
+            type: object
+            properties:
+              code:
+                type: integer
+                format: int32
+              message:
+                type: string
+              details:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    '@type':
+                      type: string
+                  additionalProperties: {}
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
       tags:
         - Query
 definitions:
@@ -71444,3 +71517,13 @@ definitions:
         description: params holds all the parameters of this module.
         type: object
     description: QueryParamsResponse is response type for the Query/Params RPC method.
+  mritunjay.mritunjay.QuerySayByeResponse:
+    type: object
+    properties:
+      name:
+        type: string
+  mritunjay.mritunjay.QuerySayGoodMorningResponse:
+    type: object
+    properties:
+      name:
+        type: string
