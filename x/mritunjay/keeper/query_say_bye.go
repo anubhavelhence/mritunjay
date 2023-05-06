@@ -1,6 +1,8 @@
 package keeper
 
+
 import (
+	"fmt"
 	"context"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
@@ -19,5 +21,5 @@ func (k Keeper) SayBye(goCtx context.Context, req *types.QuerySayByeRequest) (*t
 	// TODO: Process the query
 	_ = ctx
 
-	return &types.QuerySayByeResponse{}, nil
+	return &types.QuerySayByeResponse{Name: fmt.Sprintf("Bye, %s!",req.Name)}, nil
 }
