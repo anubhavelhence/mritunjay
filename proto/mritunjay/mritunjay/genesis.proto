@@ -1,0 +1,12 @@
+syntax = "proto3";
+package mritunjay.mritunjay;
+
+import "gogoproto/gogo.proto";
+import "mritunjay/mritunjay/params.proto";
+
+option go_package = "mritunjay/x/mritunjay/types";
+
+// GenesisState defines the mritunjay module's genesis state.
+message GenesisState {
+  Params params = 1 [(gogoproto.nullable) = false];
+}

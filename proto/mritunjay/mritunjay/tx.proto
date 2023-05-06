@@ -1,0 +1,7 @@
+syntax = "proto3";
+package mritunjay.mritunjay;
+
+option go_package = "mritunjay/x/mritunjay/types";
+
+// Msg defines the Msg service.
+service Msg {}
