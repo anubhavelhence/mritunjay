@@ -1,4 +1,5 @@
 syntax = "proto3";
+
 package mritunjay.mritunjay;
 
 import "gogoproto/gogo.proto";
@@ -10,17 +11,34 @@ option go_package = "mritunjay/x/mritunjay/types";
 
 // Query defines the gRPC querier service.
 service Query {
+  
   // Parameters queries the parameters of the module.
-  rpc Params(QueryParamsRequest) returns (QueryParamsResponse) {
+  rpc Params (QueryParamsRequest) returns (QueryParamsResponse) {
     option (google.api.http).get = "/mritunjay/mritunjay/params";
+  
+  }
+  
+  // Queries a list of SayBye items.
+  rpc SayBye (QuerySayByeRequest) returns (QuerySayByeResponse) {
+    option (google.api.http).get = "/mritunjay/mritunjay/say_bye/{name}";
+  
   }
 }
-
 // QueryParamsRequest is request type for the Query/Params RPC method.
 message QueryParamsRequest {}
 
 // QueryParamsResponse is response type for the Query/Params RPC method.
 message QueryParamsResponse {
+  
   // params holds all the parameters of this module.
   Params params = 1 [(gogoproto.nullable) = false];
 }
+
+message QuerySayByeRequest {
+  string name = 1;
+}
+
+message QuerySayByeResponse {
+  string name = 1;
+}
+
